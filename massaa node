@@ -1,0 +1,9 @@
+cd massa/
+git stash
+git remote set-url origin https://github.com/massalabs/massa.git
+git checkout testnet
+git pull
+cd massa-node
+screen -S another_update
+RUST_BACKTRACE=full cargo run --release -- -p vivian|& tee logs.txt
+ctrl + a + d
